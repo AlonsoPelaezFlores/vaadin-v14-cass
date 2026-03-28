@@ -1,0 +1,52 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+:root {
+    --lumo-base-color: #F5F5F5;
+}
+
+h1{
+    margin: 0;
+    margin-block: 1rem;
+    font-weight: 600;
+    font-size: 32px;
+}
+h3{
+    padding-bottom: 1rem;
+    font-weight: 600;
+}
+.card-container{
+    flex-wrap: wrap !important;
+    gap: 1rem;
+    width: 100%;
+}
+.card{
+    box-shadow: 0 3px 10px #7697BE29;
+    border: 1px solid #E9ECF6;
+    padding: 1rem;
+    border-radius: 5px;
+    background: white;
+    min-width: 0;
+    overflow: hidden;
+}
+
+vaadin-button.btn-primary{
+    color: white;
+    background: #8B2332;
+    spacing: 0
+}
+vaadin-form-item::part(label) {
+    white-space: nowrap;
+    width: auto;
+    font-weight: 600;
+    color: black;
+}
+vaadin-button.btn-edit,
+.btn-delete {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: inherit !important;
+    margin: 0;
+    padding: 0;
+}

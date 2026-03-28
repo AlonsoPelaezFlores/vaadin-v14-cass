@@ -1,0 +1,7 @@
+:host ::part(header-cell) {
+    font-weight: 600;
+    text-align: center;
+}
+:host ::part(body-cell){
+    text-align: center;
+}

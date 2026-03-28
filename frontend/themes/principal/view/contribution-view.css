@@ -1,0 +1,49 @@
+.period-filter {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+.period-filter__label {
+    white-space: nowrap;
+    padding-top: 0.6rem;
+    margin-inline: 1rem;
+    align-self: baseline;
+}
+.period-filter__range vaadin-select{
+    width: 140px;
+}
+.period-filter__range vaadin-combo-box{
+    width: 110px;
+}
+.period-filter__range span{
+    min-width: 40px;
+}
+.period-filter__range {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+vaadin-button.period-filter__search{
+    align-self: flex-end;
+    margin-bottom: 0.5rem;
+}
+
+.period-filter__content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.period-filter__toggles{
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    margin-left: auto;
+    gap: 0.25rem;
+    padding: 1rem;
+}

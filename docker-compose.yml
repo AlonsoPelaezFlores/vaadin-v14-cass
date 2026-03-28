@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16-bookworm
+    container_name: postgres_feature
+    environment:
+      POSTGRES_DB: vaadin_db
+      POSTGRES_USER: vaadin_user
+      POSTGRES_PASSWORD: vaadin_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
