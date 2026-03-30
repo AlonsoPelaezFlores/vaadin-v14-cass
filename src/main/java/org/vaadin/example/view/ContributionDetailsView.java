@@ -25,10 +25,10 @@ import org.vaadin.example.component.InsuredGrid;
 @CssImport("./themes/principal/view/contribution-details-view.css")
 @PageTitle("Contribution Details")
 public class ContributionDetailsView extends VerticalLayout {
-
+    private final IbanForm ibanFormIRPF = new IbanForm();
+    private final IbanForm ibanFormContribution = new IbanForm();
     public ContributionDetailsView(){
         H1 title = new H1("Detall Declaracio Cotizació");
-        Button btnExit = new Button("Sortir",e -> UI.getCurrent().navigate("/"));
         add(
             title,
             filerData(),
@@ -52,14 +52,14 @@ public class ContributionDetailsView extends VerticalLayout {
 
         Div cardFilerData = new Div(titleFilerData,filerData);
         cardFilerData.addClassName("card");
-        Component cardButtonAction = buttonActions();
-        HorizontalLayout containerHorizontal = new HorizontalLayout(cardFilerData, cardButtonAction);
+        Div divButtonAction =new Div(buttonActions());
+        HorizontalLayout containerHorizontal = new HorizontalLayout(cardFilerData, divButtonAction);
         containerHorizontal.addClassName("card-container");
         containerHorizontal.setFlexGrow(3,cardFilerData);
-        containerHorizontal.setFlexGrow(1,cardButtonAction);
+        containerHorizontal.setFlexGrow(1,divButtonAction);
         return  containerHorizontal;
     }
-    private Component buttonActions(){
+    private VerticalLayout buttonActions(){
         VerticalLayout cardButton = new VerticalLayout();
         H3 title = new H3("Accions");
 
@@ -71,6 +71,7 @@ public class ContributionDetailsView extends VerticalLayout {
 
         cardButton.add(title,btnLoadFiler,btnDeleteData);
         cardButton.addClassName("card");
+        cardButton.setWidthFull();
         return cardButton;
     }
 
@@ -180,12 +181,18 @@ public class ContributionDetailsView extends VerticalLayout {
     private VerticalLayout bankingData(){
         VerticalLayout bankingDataLayout = new VerticalLayout();
         Checkbox checkBoxBankingDataContribution = new Checkbox("Cárrec Bancari declaració cotizació");
-
-        Component ibanIRPF = createIbanLayout();
+        Span valueContribution = new Span("0.0 €");
+        HorizontalLayout checkContribution = new HorizontalLayout(checkBoxBankingDataContribution,valueContribution);
+        checkContribution.setSpacing(false);
+        checkContribution.setAlignItems(Alignment.BASELINE);
+        Component ibanIRPF = createIbanLayout(ibanFormContribution);
 
         Checkbox checkBoxBankingDataIRPF = new Checkbox("Cárrec Bancari IRPF");
-
-        Component ibanContribution = createIbanLayout();
+        Span valueIRPF = new Span("0.0 €");
+        HorizontalLayout checkIRPF = new HorizontalLayout(checkBoxBankingDataIRPF,valueIRPF);
+        checkIRPF.setSpacing(false);
+        checkIRPF.setAlignItems(Alignment.BASELINE);
+        Component ibanContribution = createIbanLayout(ibanFormIRPF);
 
         Checkbox checkBoxWithoutPayment = new Checkbox("Declaració sense pagament(Aquestá declaració restará pendent de pagament)");
 
@@ -200,22 +207,29 @@ public class ContributionDetailsView extends VerticalLayout {
         bankingDataLayout.setSpacing(false);
         return bankingDataLayout;
     }
-    private HorizontalLayout createIbanLayout(){
+    private HorizontalLayout createIbanLayout(IbanForm ibanForm){
 
         HorizontalLayout ibanLayout= new HorizontalLayout();
         Button btnLoadAccount = new Button("Recuperar compte");
         btnLoadAccount.addClassName("btn-primary");
         btnLoadAccount.getStyle().set("margin-left","1.5rem");
-        ibanLayout.add(new IbanForm(), btnLoadAccount);
+
+        ibanLayout.add(ibanForm, btnLoadAccount);
         ibanLayout.getStyle().set("margin-left","5rem");
         ibanLayout.setSpacing(false);
         ibanLayout.setAlignItems(Alignment.END);
+
         return ibanLayout;
     }
     private HorizontalLayout signAndConfirmData() {
         HorizontalLayout layout = new HorizontalLayout();
         layout.setWidthFull();
-        Button btnValidate = new Button("Confirmar y signar les dades");
+        Button btnValidate = new Button("Confirmar y signar les dades", e->{
+            Dialog dialog = new Dialog();
+            dialog.add(new Span("acc: "),new Span(ibanFormContribution.getBankAccount()));
+            dialog.add(new Span("result: "),new Span(ibanFormContribution.validateIban()));
+            dialog.open();
+        });
         btnValidate.addClassName("btn-primary");
         btnValidate.getStyle().set("margin", "0 auto");
         layout.add(btnValidate);
@@ -232,4 +246,3 @@ public class ContributionDetailsView extends VerticalLayout {
         return layout;
     }
 }
-

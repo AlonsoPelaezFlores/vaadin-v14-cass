@@ -39,7 +39,7 @@ public class ContributionView extends VerticalLayout {
         Div divData = new Div(title,formData);
         divData.addClassName("card");
 
-        HorizontalLayout divButton =new HorizontalLayout(buttonsAction());
+        Div divButton =new Div(buttonsAction());
         HorizontalLayout cardsContainer = new HorizontalLayout();
         cardsContainer.add(divData,divButton);
         cardsContainer.setFlexGrow(3,divData);
@@ -59,7 +59,7 @@ public class ContributionView extends VerticalLayout {
 
         cardButton.add(title,btnCreate,btnApply);
         cardButton.addClassName("card");
-        cardButton.setWidth("auto");
+        cardButton.setWidthFull();
         return cardButton;
     }
     private Component showContributionReports(){
@@ -84,7 +84,7 @@ public class ContributionView extends VerticalLayout {
         filterSearchButton.addClassNames("btn-primary","period-filter__search");
 
         ToggleButton buttonToggleXML = new ToggleButton("Mostrar accions XML");
-        buttonToggleXML.getStyle().set("--vcf-toggle-button-background-color","var(--lumo-success-color)");
+
         ToggleButton buttonTogglePending = new ToggleButton("Mostrar nomes pendents");
 
         Div filterTogglesActions = new Div(buttonToggleXML,buttonTogglePending);

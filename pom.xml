@@ -102,25 +102,6 @@
             <version>1.0.1</version>
         </dependency>
 
-        <!-- https://vaadin.com/directory/component/carousel-addon-->
-        <dependency>
-            <groupId>com.flowingcode.addons.carousel</groupId>
-            <artifactId>carousel-addon</artifactId>
-            <version>2.1.1</version>
-        </dependency>
-        <!-- https://vaadin.com/directory/component/twincolgrid-add-on -->
-        <dependency>
-            <groupId>com.flowingcode.vaadin.addons</groupId>
-            <artifactId>twincolgrid</artifactId>
-            <version>2.9.2</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.vaadin.artur</groupId>
-            <artifactId>a-vaadin-helper</artifactId>
-            <version>1.6.2</version>
-        </dependency>
-
         <dependency>
             <groupId>org.vaadin.addons</groupId>
             <artifactId>pdfexport</artifactId>
@@ -133,32 +114,9 @@
             <version>3.0.1</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.vaadin</groupId>
-            <artifactId>flow-viritin</artifactId>
-            <version>0.4.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.vaadin.olli</groupId>
-            <artifactId>browser-opener</artifactId>
-            <version>0.5</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.vaadin.componentfactory</groupId>
-            <artifactId>popup</artifactId>
-            <version>2.2.5</version>
-        </dependency>
         <!--  END VAADIN DEPENDENCIES -->
 
         <!-- START SPRING DEPENDENCIES -->
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -194,11 +152,6 @@
         <!--  END SPRING DEPENDENCIES -->
 
         <!--  START CASS DEPENDENCIES -->
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
-        </dependency>
 
         <dependency>
             <groupId>org.postgresql</groupId>
@@ -212,6 +165,13 @@
             <version>1.18.30</version>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>commons-validator</groupId>
+            <artifactId>commons-validator</artifactId>
+            <version>1.8.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>

@@ -17,7 +17,6 @@ h3{
 }
 .card-container{
     flex-wrap: wrap !important;
-    gap: 1rem;
     width: 100%;
 }
 .card{
@@ -33,7 +32,6 @@ h3{
 vaadin-button.btn-primary{
     color: white;
     background: #8B2332;
-    spacing: 0
 }
 vaadin-form-item::part(label) {
     white-space: nowrap;

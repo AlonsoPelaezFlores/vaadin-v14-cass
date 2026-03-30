@@ -1,0 +1,4 @@
+.iban-form__field vaadin-text-field{
+    width: 70px;
+    gap: 0.5rem;
+}

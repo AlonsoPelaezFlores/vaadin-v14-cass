@@ -23,7 +23,7 @@ public class InsuredGrid extends VerticalLayout {
         grid.addColumn(InsuredDTO::getIrpfWithHolding).setHeader("Retencio IRPF");
         grid.addComponentColumn(insuredDTO ->{
             Button editBtn = new Button(VaadinIcon.PENCIL.create(), event ->{
-                DialogInsured dialog = new DialogInsured(insuredDTO);
+                DialogInsured dialog = new DialogInsured();
                 dialog.open();
             });
             editBtn.addThemeVariants(ButtonVariant.LUMO_ICON);
