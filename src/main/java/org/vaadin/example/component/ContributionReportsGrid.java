@@ -8,7 +8,6 @@ import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.server.VaadinSession;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
@@ -32,10 +31,16 @@ public class ContributionReportsGrid extends VerticalLayout {
             Button modifyBtn = new Button(VaadinIcon.PENCIL.create(), e -> {
                 UI.getCurrent().navigate("/details");
             });
-
+            Button uploadXmlBtn = new Button(VaadinIcon.UPLOAD.create(), e -> {
+                ExportErrorDialog exportErrorDialog = new ExportErrorDialog();
+                exportErrorDialog.setCloseOnEsc(false);
+                exportErrorDialog.setCloseOnOutsideClick(false);
+                exportErrorDialog.setModal(false);
+                exportErrorDialog.open();
+            });
             viewBtn.addThemeVariants(ButtonVariant.LUMO_ICON);
             modifyBtn.addThemeVariants(ButtonVariant.LUMO_ICON);
-            return new HorizontalLayout(viewBtn, modifyBtn);
+            return new HorizontalLayout(viewBtn, modifyBtn,uploadXmlBtn);
         }).setHeader("Accions");
         grid.setItems(getMockData());
         grid.setWidthFull();

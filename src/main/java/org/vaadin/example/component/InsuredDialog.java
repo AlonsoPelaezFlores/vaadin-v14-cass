@@ -26,7 +26,7 @@ import org.vaadin.example.backend.validator.ImportValidator;
 
 import java.util.List;
 
-public class DialogInsured extends Dialog {
+public class InsuredDialog extends Dialog {
 
     Grid<ConceptDTO> grid = new Grid<>(ConceptDTO.class,false);
     Binder<AddConceptForm> binderForm = new Binder<>(AddConceptForm.class);
@@ -34,7 +34,7 @@ public class DialogInsured extends Dialog {
     private final TextField amountField = new TextField("Import");
     private final IntegerField hoursField = new IntegerField("Hores");
     private final IntegerField daysField = new IntegerField("Dies");
-    public DialogInsured(){
+    public InsuredDialog(){
         conceptList.setLabel("Concepte");
         setUp();
         conceptGrid();
