@@ -33,18 +33,16 @@ vaadin-button.btn-primary{
     color: white;
     background: #8B2332;
 }
+vaadin-button.btn-edit,
+.btn-delete {
+    background-color: #D1D5DB !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: inherit !important;
+}
 vaadin-form-item::part(label) {
     white-space: nowrap;
     width: auto;
     font-weight: 600;
     color: black;
-}
-vaadin-button.btn-edit,
-.btn-delete {
-    background-color: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    color: inherit !important;
-    margin: 0;
-    padding: 0;
 }
