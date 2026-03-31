@@ -2,9 +2,11 @@ package org.vaadin.example.backend;
 
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.xhtmlrenderer.pdf.ITextRenderer;
 import java.io.ByteArrayOutputStream;
 
+@Configuration
 public class config {
     @Bean
     public ApplicationRunner warmupPdfEngine() {
