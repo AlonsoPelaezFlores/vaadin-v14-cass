@@ -20,6 +20,7 @@ import org.vaadin.example.component.MonthYearFilter;
 
 
 @Route("")
+@CssImport("./themes/principal/global.css")
 @CssImport("./themes/principal/view/contribution-view.css")
 @PageTitle("Contribution")
 public class ContributionView extends VerticalLayout {

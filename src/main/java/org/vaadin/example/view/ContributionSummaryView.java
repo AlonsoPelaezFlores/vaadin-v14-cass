@@ -11,20 +11,17 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.server.VaadinSession;
-import org.vaadin.example.backend.dto.ContributionReportRowDTO;
 
 @Route("/summary")
 @PageTitle("Contribution Summary")
 public class ContributionSummaryView extends VerticalLayout {
-    ContributionReportRowDTO contributionDTO;
     public ContributionSummaryView(){
         H1 titleContributionSummary = new H1("Resum de la declaració");
         add(titleContributionSummary,showContributionReportResult(),showPaymentInfo());
     }
     private Component showContributionReportResult(){
         H3 titleContribution = new H3("Resultat de la declaració");
-        Span result = new Span(contributionDTO.getStatus());
+        Span result = new Span("status");
         VerticalLayout layoutContributionResult = new VerticalLayout(titleContribution,result);
         layoutContributionResult.addClassName("card");
         Div buttonAction = new Div(buttonsActions());
